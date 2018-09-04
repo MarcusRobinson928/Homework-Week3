@@ -29,7 +29,6 @@ const employeeList = [
     officeNum: 213,
     phoneNum: '789-766-5675'
   },
-  ,
   {
     name: 'Ty',
     officeNum: 211,
@@ -54,17 +53,20 @@ for ( let i = 0; i < commandList.length; i++){
     render(employeeList[i].officeNum);
     render(employeeList[i].phoneNum);
   }
-  else if(command.toLocaleLowerCase() === 'verify'){
+}
+
+  if (command.toLocaleLowerCase() === 'verify'){
     const employee = prompt('Enter Employee Name')
     let verify = 'false'
   for (let i = 0; i < employeeList.length; i++){
      if (employee === employeeList[i].name){
       verify = 'true';
-      render(verify)
       }
      }
+     render(verify)
     }
-    else if(command.toLocaleLowerCase() === 'lookup'){
+
+    if (command.toLocaleLowerCase() === 'lookup'){
       const employee = prompt('Enter Employee Name')
     for (let i = 0; i < employeeList.length; i++){
        if (employee === employeeList[i].name){
@@ -74,15 +76,18 @@ for ( let i = 0; i < commandList.length; i++){
         }
        }
       }
-      else if(command.toLocaleLowerCase() === 'contains'){
-        const employee = prompt('Enter Employee Name')
-      for (let i = 0; i < employeeList.length; i++){
-         if (employeeList[i].includes(element, start) === employee){
-          render(employeeList[i].name);
-          }
-         }
+
+      if (command.toLocaleLowerCase() === 'contains'){
+        const containsName = prompt('Enter a Partial Name:');
+        for (let i = 0; i < employeeList.length; i++){
+            if (employeeList[i].includes(containsName));
+            render (employeeList[i].name);
+            render (employeeList[i].officeNum);
+            render (employeeList[i].phoneNum);
         }
-        else if(command.toLocaleLowerCase() === 'update'){
+      }
+
+        if (command.toLocaleLowerCase() === 'update'){
           const employee = prompt('Enter Employee Name')
         for (let i = 0; i < employeeList.length; i++){
            if (employee === employeeList[i].name){
@@ -91,10 +96,11 @@ for ( let i = 0; i < commandList.length; i++){
            }
           }
 
-          else if(command.toLocaleLowerCase() === 'add'){
+          if (command.toLocaleLowerCase() === 'add'){
               const employeeName = prompt('Enter Employee Name?');
               const officeNum = prompt('Enter Office Number');
               const phoneNum = prompt('Enter Telephone Number');
+
              var newEmployee = {
                 name: employeeName,
                 officeNum: officeNum,
@@ -110,6 +116,10 @@ for ( let i = 0; i < commandList.length; i++){
                 render(employeeList[i].phoneNum);
               }
           } 
+
+          if (command.toLocaleLowerCase() === 'delete'){
+            const employee = prompt('Enter Employee Name');
+            for (let i = 0; i < employeeList.length; i++){
               
-  }
-render(msg);
+             }
+      }

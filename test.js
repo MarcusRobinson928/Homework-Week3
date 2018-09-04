@@ -29,7 +29,6 @@ const employeeList = [
       officeNum: 213,
       phoneNum: '789-766-5675'
     },
-    ,
     {
       name: 'Ty',
       officeNum: 211,
@@ -43,13 +42,10 @@ const employeeList = [
   ];
   
   const employee = prompt('Enter Employee Name')
-  for (let i = 0; i < employeeList.length; i++){
-     if (employeeList[i].name === employee){
-      const field = prompt('Updating Name, Office Number, or Telephone Number?')
-      if (field === 'name', 'Name'){
-          const employeeName = prompt('Enter New Name')
-          employeeList.push(employeeName)
-          render(employeeList.name)
-      }
-      }
-     }
+   let verify = ('false')
+for (let i = 0; i < employeeList.length; i++){
+   if (employee === employeeList[i].name){
+    verify = 'true';
+    }
+   }
+   render(verify)
