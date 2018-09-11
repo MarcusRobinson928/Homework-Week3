@@ -41,11 +41,44 @@ const employeeList = [
     }
   ];
   
-  const employee = prompt('Enter Employee Name')
-   let verify = ('false')
-for (let i = 0; i < employeeList.length; i++){
-   if (employee === employeeList[i].name){
-    verify = 'true';
+
+
+
+  const print = function(){
+    $('#content').empty();
+    $('#input').empty();
+    $('#board').empty();
+      for (let i = 0; i < employeeList.length; i++){
+      $('#content').append(
+        `<p>${employeeList[i].name}</p>
+        ${employeeList[i].officeNum}</br>
+        ${employeeList[i].phoneNum}</br>
+        <br></br>`)
     }
-   }
-   render(verify)
+  }
+
+  const verifyInput = function(){
+    $('#content').empty();
+    $('#input').empty();
+    $('#input2').empty();
+    $('#board').empty();
+    $('#board2').empty();
+    $('#input').append(`
+    <input type="text" id="verify-input" placeholder="Enter Name" autocomplete="off" />
+    <button id="verifyButton">Verify</button>`);
+    $('#verifyButton').on('click', verify);
+  }
+  
+  const verify = function(){
+    $('#board').empty();
+    const input = $('#verify-input').val();
+    let msg = 'Employee Not Found'
+    for (let i = 0; i < employeeList.length; i++){
+       if (input === employeeList[i].name){
+      msg = 'Employee Found'}
+  }
+  $('#board').append(msg)
+  }
+
+$('#print').on('click', print);
+$('#verify').on('click', verifyInput);
